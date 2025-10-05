@@ -3,9 +3,8 @@ import { type RouteConfig, index, layout, prefix, route } from "@react-router/de
 export default [
     layout("components/layouts/master.tsx", [
         ...prefix("", [
-            index("routes/post.tsx")
-            // index("routes/posts.tsx"),
-            // route(":postId", "routes/post.detail.tsx")
+            index("routes/post.tsx"),
+            route(":postId", "routes/post.detail.tsx")
         ]),
         route("gioi-thieu", "routes/home.tsx"),
         route("chuc-nang-nhiem-vu", "routes/mission.tsx"),

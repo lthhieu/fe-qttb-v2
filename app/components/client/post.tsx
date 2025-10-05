@@ -52,7 +52,7 @@ export default function PostComponent(props: IProps) {
     <div className="block space-y-2 md:flex md:flex-wrap md:gap-4">
       {posts && posts.length>0 ? 
       posts.map((item,index:number)=>{return(
-        <Link key={index} to='/tin-tuc'>
+        <Link key={index} to={`/${item.slug}`}>
       <Card className="max-w-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
       <h6 className=" font-bold tracking-tight text-gray-900 dark:text-white two-lines">
         {item.title}
