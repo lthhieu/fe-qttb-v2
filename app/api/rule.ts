@@ -4,7 +4,8 @@ const fetchRules = (page: number, limit: number, bio?: string | null, categoryRu
     let url = `rules?page=${page}&limit=${limit}`;
     if (bio) url += `&bio=/${bio}/i`;
     if (categoryRuleId) url += `&categoryRuleId=${categoryRuleId}`;
-    if (sort) url += `&sort=${sort}`;
+    if (sort) url += `&sort=${sort}` 
+    else url += `&sort=-createdAt`;
     return axios.get<any, IBackendRes<IRules[]>>(url)
 }
 
