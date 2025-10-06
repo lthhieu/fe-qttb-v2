@@ -49,12 +49,12 @@ export default function PostComponent(props: IProps) {
   </select>
 </Form>
     </div>
-    <div className="block space-y-2 md:flex md:flex-wrap md:gap-4">
+    <div className=" space-y-1 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 space-x-1">
       {posts && posts.length>0 ? 
       posts.map((item,index:number)=>{return(
-        <Link key={index} to={`/${item.slug}`}>
-      <Card className="max-w-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
-      <h6 className=" font-bold tracking-tight text-gray-900 dark:text-white two-lines">
+        <Link className="" key={index} to={`/${item.slug}`}>
+      <Card className="hover:bg-gray-100 max-w-sm w-full dark:hover:bg-gray-700 cursor-pointer">
+      <h6 className="font-bold tracking-tight text-gray-900 dark:text-white two-lines">
         {item.title}
       </h6>
       <div className="flex gap-2">

@@ -5,6 +5,8 @@ import AppNavLink from "~/configs/utils/app.navlink";
 
 export function Header() {
   const nav: { url: string, title: string }[] = [
+    { url: '/gioi-thieu', title: 'Giới thiệu' },
+    { url: '/chuc-nang-nhiem-vu', title: 'Chức năng - Nhiệm vụ' },
     { url: '/van-ban-quy-dinh', title: 'Văn bản - Quy định' },
     { url: '/bieu-mau', title: 'Biểu mẫu' },
     { url: '/quy-trinh', title: 'Quy trình' },
@@ -23,7 +25,7 @@ export function Header() {
       </NavbarBrand>
       <div className="flex md:order-2 gap-2">
         <DarkThemeToggle />
-        <Dropdown
+        {/* <Dropdown
           arrowIcon={false}
           inline
           label={
@@ -38,11 +40,11 @@ export function Header() {
           <DropdownItem>Cài đặt</DropdownItem>
           <DropdownDivider />
           <DropdownItem>Đăng xuất</DropdownItem>
-        </Dropdown>
+        </Dropdown> */}
         <NavbarToggle />
       </div>
       <NavbarCollapse>
-        <NavbarLink as={'div'}>
+        {/* <NavbarLink as={'div'}>
           <MegaMenuDropdown toggle={<p className="cursor-pointer">Tổng quan</p>}>
             <ul className="grid grid-cols-1">
               <div className="flex flex-col gap-4 p-4">
@@ -51,7 +53,7 @@ export function Header() {
               </div>
             </ul>
           </MegaMenuDropdown>
-        </NavbarLink>
+        </NavbarLink> */}
         {nav.map((item,index:number)=>{return(
           <AppNavLink to={item.url} text={item.title} key={index} />
         )})}
