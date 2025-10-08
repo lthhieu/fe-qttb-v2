@@ -74,7 +74,7 @@ const navigate = useNavigate()
         <TableHead>
           <TableRow>
             <TableHeadCell className="max-w-[150px]">Số ký hiệu</TableHeadCell>
-            <TableHeadCell className="min-w-[150px]">Ngày ban hành</TableHeadCell>
+            <TableHeadCell className="min-w-[151px]">Ngày ban hành</TableHeadCell>
             <TableHeadCell className="min-w-[300px]">Trích yếu</TableHeadCell>
             <TableHeadCell className="min-w-[150px]">File đính kèm</TableHeadCell>
           </TableRow>
