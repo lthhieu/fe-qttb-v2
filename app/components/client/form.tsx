@@ -75,9 +75,9 @@ const navigate = useNavigate()
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
           {index+1}
             </TableCell>
-            <TableCell>{item.name}</TableCell>
-            <TableCell>{dayjs(item.issueDate).format("DD/MM/YYYY")}</TableCell>
-            <TableCell>{<a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href={filelink} download={item.name} target="_blank" rel="noopener noreferrer">
+            <TableCell className="text-gray-900">{item.name}</TableCell>
+            <TableCell className="text-gray-900">{dayjs(item.issueDate).format("DD/MM/YYYY")}</TableCell>
+            <TableCell className="text-gray-900">{<a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href={filelink} download={item.name} target="_blank" rel="noopener noreferrer">
                                             File đính kèm
                                         </a>}</TableCell>
           </TableRow>

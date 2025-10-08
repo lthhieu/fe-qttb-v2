@@ -18,7 +18,7 @@ export async function loader({ request, }: Route.LoaderArgs) {
     const bio = url.searchParams.get("bio")
     const sort = url.searchParams.get("sort")
     const categoryRuleId = url.searchParams.get("categoryRuleId")
-    let response = await fetchRules(page ? +page : 1, 10, bio, categoryRuleId, sort)
+    let response = await fetchRules(page ? +page : 1, 5, bio, categoryRuleId, sort)
     let response1 = await fetchRuleCategories()
     let response3 = await fetchPosts(1, 3,"",'-createdAt')
     if (response.success && response1.success && response3.success) {
@@ -30,7 +30,7 @@ export async function loader({ request, }: Route.LoaderArgs) {
 export default function Word({ loaderData }: Route.ComponentProps) {
 const { ruleCategories, rules, meta,news } = loaderData
   return (
-    <div className="px-[10%] grid grid-cols-1 md:grid-cols-6">
+    <div className="px-[5%] md:px-[10%] grid grid-cols-1 md:grid-cols-6">
           <div className="col-span-full md:col-span-4 ">
             <WordComponent ruleCategories={ruleCategories} rules={rules} meta={meta} />
           </div>

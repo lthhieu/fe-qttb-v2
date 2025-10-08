@@ -24,23 +24,7 @@ export function Header() {
         </div>
       </NavbarBrand>
       <div className="flex md:order-2 gap-2">
-        <DarkThemeToggle />
-        {/* <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar className="cursor-pointer" alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-          }
-        >
-          <DropdownHeader>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-          </DropdownHeader>
-          <DropdownItem>Quản trị</DropdownItem>
-          <DropdownItem>Cài đặt</DropdownItem>
-          <DropdownDivider />
-          <DropdownItem>Đăng xuất</DropdownItem>
-        </Dropdown> */}
+        {/* <DarkThemeToggle /> */}
         <NavbarToggle />
       </div>
       <NavbarCollapse>

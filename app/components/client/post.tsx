@@ -1,5 +1,5 @@
 import { Card, Pagination } from "flowbite-react";
-import { useState } from "react";
+import parse from 'html-react-parser';
 import { Form, Link, useNavigate, useSearchParams } from "react-router";
 import type { IPosts, Meta } from "~/types/backend";
 
@@ -60,7 +60,7 @@ export default function PostComponent(props: IProps) {
       <div className="flex gap-2">
         <img className="w-[100px] rounded" src={`data:${item.mimetype};base64,${item.thumbnail}`} />
         <p className=" font-normal text-gray-700 dark:text-gray-400 text-justify three-lines">
-{item.content}      </p>
+{parse(item.content)}      </p>
       </div>
     </Card></Link>
       )})

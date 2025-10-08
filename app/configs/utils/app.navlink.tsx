@@ -12,7 +12,7 @@ export default function AppNavLink(props: AppNavLinkProps) {
     const clickHandler = useLinkClickHandler(props.to);
     
     return <span onClick={clickHandler}>
-        <NavbarLink href={props.to} active={location.pathname === props.to}>
+        <NavbarLink className="text-black" href={props.to} active={location.pathname === props.to}>
             {props.text}
         </NavbarLink>
     </span>;

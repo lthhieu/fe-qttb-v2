@@ -34,7 +34,7 @@ export default function Form({
 const { formCategories,forms,meta,news } = loaderData;
 
   return (
-    <div className="px-[10%] grid grid-cols-1 md:grid-cols-6">
+    <div className="px-[5%] md:px-[10%] grid grid-cols-1 md:grid-cols-6">
           <div className="col-span-full md:col-span-4">
             <FormComponent forms={forms} meta={meta} formCategories={formCategories}/>
           </div>

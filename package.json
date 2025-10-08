@@ -16,6 +16,7 @@
     "axios": "^1.12.2",
     "dayjs": "^1.11.18",
     "flowbite-react": "^0.12.4",
+    "html-react-parser": "^5.2.6",
     "isbot": "^5.1.28",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

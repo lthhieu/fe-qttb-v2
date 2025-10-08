@@ -87,8 +87,8 @@ const navigate = useNavigate()
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
           {item.signNumber}
             </TableCell>
-            <TableCell>{dayjs(item.issueDate).format("DD/MM/YYYY")}</TableCell>
-            <TableCell className="text-justify">{item.bio}</TableCell>
+            <TableCell className="text-gray-900">{dayjs(item.issueDate).format("DD/MM/YYYY")}</TableCell>
+            <TableCell className="text-gray-900 text-justify">{item.bio}</TableCell>
             <TableCell>{<a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href={filelink} target="_blank" rel="noopener noreferrer">
                                             File đính kèm
                                         </a>}</TableCell>

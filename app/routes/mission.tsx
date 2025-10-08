@@ -1,5 +1,8 @@
 import { List, ListItem, TabItem, Tabs } from "flowbite-react";
 import type { Route } from "./+types/mission";
+import { fetchForms } from "~/api/forms";
+import { fetchRules } from "~/api/rule";
+import SidebarComponent from "~/components/client/sidebar";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,15 +11,34 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Mission() {
+
+export async function loader({ request, }: Route.LoaderArgs) {
+    const url = new URL(request.url)
+    const page = url.searchParams.get("page")
+    const title = url.searchParams.get("title")
+    const sort = url.searchParams.get("sort")
+        let response1= await fetchForms(1, 5)
+            let response2 = await fetchRules(1, 4)
+
+
+    if (response1.success && response2.success) {
+        return {  forms:response1.data, words: response2.data }
+    } else return {forms:[],words:[] }
+}
+
+export default function Mission({ loaderData }: Route.ComponentProps) {
+  const { forms,words } = loaderData
 
   return (
-    <div className="px-[10%]">
-        <Tabs aria-label="Tabs with underline" variant="underline">
+
+
+<div className="px-[5%] md:px-[10%] grid grid-cols-1 md:grid-cols-6">
+          <div className="col-span-full md:col-span-4 ">
+<Tabs aria-label="Tabs with underline" variant="underline">
       <TabItem active title="Chức năng">
         <div className="leading-9">
-          <p className="text-gray-500 font-semibold dark:text-gray-400">Phòng Quản trị - Thiết bị có chức năng tham mưu, giúp việc cho Hiệu trưởng trong các mặt công tác sau:</p>
-        <List >
+          <p className=" font-semibold dark:text-gray-400">Phòng Quản trị - Thiết bị có chức năng tham mưu, giúp việc cho Hiệu trưởng trong các mặt công tác sau:</p>
+        <List className="text-black">
             <ListItem>Quản lý và sử dụng cơ sở vật chất của Trường.</ListItem>
             <ListItem>Xây dựng và tổ chức thực hiện các dự án đầu tư máy móc, trang thiết bị cho giảng dạy và học tập.</ListItem>
             <ListItem>Theo dõi sử dụng hiệu quả tài sản của trường phục vụ cho giảng dạy, nghiên cứu khoa học và học tập.</ListItem>
@@ -26,9 +48,9 @@ export default function Mission() {
       </TabItem>
       <TabItem title="Nhiệm vụ">
         <div className="leading-9">
-          <List>
+          <List className="text-black">
             <ListItem><span className="font-semibold">Công tác quản trị:</span>
-              <List nested>
+              <List className="text-black" nested>
                 <ListItem>Quản lý, bảo dưỡng cơ sở hạ tầng, bao gồm: Phòng làm việc, xưởng thực hành, ban ghế, thiết bị hỗ trợ làm việc, hàng rào, hệ thống giao thông trong Trường, hệ thống cống rãnh, hệ thống cung cấp điện nước, hệ thống iện thoại trong trường đảm bảo thông tin thông suốt.</ListItem>
                 <ListItem>Phối hợp với các bộ phận liên quan triển khai công tác phòng, chống bão lụt, phòng cháy, chữa cháy trong Trường.</ListItem>
                 <ListItem>Lập kế hoạch và tổ chức sửa chữa nhà cửa, công trình công cộng, thiết bị máy móc, bàn ghế, tủ, bảng,... bị hư hỏng của tất cả các đơn vị trong Trường.</ListItem>
@@ -43,7 +65,7 @@ export default function Mission() {
               </List>
             </ListItem>
             <ListItem><span className="font-semibold">Công tác thiêt bị:</span>
-              <List nested>
+              <List className="text-black" nested>
                 <ListItem>Quản lý toàn bộ hệ thống máy móc, trang thiết bị và các phương tiện khoa học kỹ thuật phục vụ cho đào tạo và tổ chức đào tạo.</ListItem>
                 <ListItem>Phối hợp với các đơn vị xây dựng kế hoạch mua sắm trang thiết bị, vật tư phục vụ đào tạo, nghiên cứu khoa học và hoạt động thường xuyên của Trường.</ListItem>
                 <ListItem>Xây dựng kế hoạch đấu thầu và tiến độ thực hiện các dự án về thiết bị, vật tư.</ListItem>
@@ -56,7 +78,10 @@ export default function Mission() {
           </List>
         </div>
       </TabItem>
-    </Tabs>
-      </div>
+    </Tabs>          </div>
+          <div className="col-span-full md:col-span-2">
+            <SidebarComponent forms={forms} words={words}  />
+          </div>
+          </div>
   );
 }
