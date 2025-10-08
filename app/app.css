@@ -12,6 +12,10 @@ button[role="tab"] {
   cursor: pointer;
 }
 
+button[type="button"]:not(.cursor-not-allowed) {
+  cursor: pointer;
+}
+
 .two-lines {
   display: -webkit-box;
   -webkit-line-clamp: 2;
