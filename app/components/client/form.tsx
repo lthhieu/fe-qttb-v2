@@ -69,7 +69,7 @@ const navigate = useNavigate()
         </TableHead>
         <TableBody className="divide-y">
           {forms && forms.length>0 && forms.map((item,index)=>{
-            const filelink = FileLink(item.file, item.mimetype);
+            // const filelink = FileLink(item.file, item.mimetype);
             return(
             <TableRow key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -77,7 +77,7 @@ const navigate = useNavigate()
             </TableCell>
             <TableCell className="text-gray-900">{item.name}</TableCell>
             <TableCell className="text-gray-900">{dayjs(item.issueDate).format("DD/MM/YYYY")}</TableCell>
-            <TableCell className="text-gray-900">{<a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href={filelink} download={item.name} target="_blank" rel="noopener noreferrer">
+            <TableCell className="text-gray-900">{<a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href={`${import.meta.env.VITE_BACKEND_PUBLIC}/${item.file}`} download={item.name} target="_blank" rel="noopener noreferrer">
                                             File đính kèm
                                         </a>}</TableCell>
           </TableRow>

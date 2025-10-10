@@ -25,7 +25,7 @@ const {news,forms,words} = props
         {item.title}
       </h6>
       <div className="flex gap-2">
-        <img className="w-[100px] rounded" src={`data:${item.mimetype};base64,${item.thumbnail}`} />
+        <img className="w-[100px] rounded" src={`${import.meta.env.VITE_BACKEND_PUBLIC}/${item.thumbnail}`} />
         <p className=" text-[14px] text-gray-700 dark:text-gray-400 text-justify three-lines">
 {parse(item.content)}       </p>
       </div>
