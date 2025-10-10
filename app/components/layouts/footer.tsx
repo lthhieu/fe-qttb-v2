@@ -1,7 +1,7 @@
 import { Footer, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup, FooterTitle } from "flowbite-react";
 export default function FooterPage() {
     return (
-        <Footer className=" md:px-[10%] border-t-2 border-t-[#ccc]" container>
+        <Footer className="mt-2 md:px-[10%] border-t-2 border-t-[#ccc]" container>
       <div className="w-full">
         <div className="w-full px-4 sm:flex sm:items-center sm:justify-between">
           <FooterCopyright className="text-black" href="#" by="Phòng Quản trị - Thiết bị" year={2025} />

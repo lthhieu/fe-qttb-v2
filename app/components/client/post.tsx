@@ -59,7 +59,7 @@ export default function PostComponent(props: IProps) {
       </h6>
       <div className="flex gap-2">
         <img className="w-[100px] rounded" src={`data:${item.mimetype};base64,${item.thumbnail}`} />
-        <p className=" font-normal text-gray-700 dark:text-gray-400 text-justify three-lines">
+        <p className=" text-[14px] text-gray-700 dark:text-gray-400 text-justify three-lines">
 {parse(item.content)}      </p>
       </div>
     </Card></Link>
